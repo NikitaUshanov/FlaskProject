@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Laba</title>
+    <title>ExProject</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 
@@ -14,23 +14,32 @@
       <a class="navbar-brand" href="{{ url_for('main.main') }}">ExProject</a>
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link" href="{{ url_for('main.main') }}">Home</a>
+                <a class="nav-link" href="{{ url_for('main.main') }}">{{ _("Home") }}</a>
             </li>
             {% if not current_user.is_authenticated %}
             <li class="nav-item">
-                <a class="nav-link" href="{{ url_for('login.login') }}">Login</a>
+                <a class="nav-link" href="{{ url_for('login.login') }}">{{ _("Login") }}</a>
             </li>
             {% endif %}
                 {% if not current_user.is_authenticated %}
             <li class="nav-item">
-                <a class="nav-link" href="{{ url_for('register.register') }}">Sing Up</a>
+                <a class="nav-link" href="{{ url_for('register.register') }}">{{ _("Sign Up") }}</a>
             </li>
             {% endif %}
                 {% if current_user.is_authenticated %}
             <li class="nav-item">
-                <a class="nav-link" href="{{ url_for('login.logout') }}">Logout</a>
+                <a class="nav-link" href="{{ url_for('login.logout') }}">{{ _("Logout") }}</a>
             </li>
             {% endif %}
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  {{ _("Language") }}
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="{{ url_for('main.set_language', language='ru') }}">{{ _("Russian") }}</a>
+                  <a class="dropdown-item" href="{{ url_for('main.set_language', language='en') }}">{{ _("English") }}</a>
+                </div>
+            </li>
         </ul>
     </nav>
     <p>

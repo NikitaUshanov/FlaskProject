@@ -3,30 +3,30 @@
 {% block content %}
 {% if current_user.is_authenticated %}
 <div class="card">
-  <h5 class="card-header">Machine Learning</h5>
+  <h5 class="card-header">{{ _("Machine Learning") }}</h5>
   <div class="card-body">
-    <p class="card-text">Model for research something</p>
-    <a href="{{ url_for('machine.machine') }}" class="btn btn-primary">Check</a>
+    <p class="card-text">{{ _("Model for research something") }}</p>
+    <a href="{{ url_for('machine.machine') }}" class="btn btn-primary">{{ _("Check") }}</a>
   </div>
 </div>
 <div class="card">
-  <h5 class="card-header">Scientific articles</h5>
+  <h5 class="card-header">{{ _("Scientific articles") }}</h5>
   <div class="card-body">
-    <p class="card-text">Scientific article on various topics</p>
-    <a href="{{ url_for('article.article') }}" class="btn btn-primary ">Check</a>
+    <p class="card-text">{{ _("Scientific article on various topics") }}</p>
+    <a href="{{ url_for('article.article') }}" class="btn btn-primary ">{{ _("Check") }}</a>
   </div>
 </div>
 <div class="card">
-  <h5 class="card-header">Other content</h5>
+  <h5 class="card-header">{{ _("Other content") }}</h5>
   <div class="card-body">
-    <p class="card-text">Not available now, coming soon</p>
-    <a href="" class="btn btn-primary disabled" aria-disabled="true">Check</a>
+    <p class="card-text">{{ _("Not available now, coming soon") }}</p>
+    <a href="" class="btn btn-primary disabled" aria-disabled="true">{{ _("Check") }}</a>
   </div>
 </div>
 {% endif %}
 {% if not current_user.is_authenticated %}
 <h3 class="subtitle">
-  To see more information, please authorize
+  {{ _("To see more information, please authorize") }}
 </h3>
 {% endif %}
 {% endblock %}

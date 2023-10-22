@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, request, session
 from flask_login import LoginManager
 
 from config import Config
@@ -12,7 +12,14 @@ def create_app(config_class=Config):
     app.config.from_object(config_class)
 
     db.init_app(app)
+
     babel.init_app(app)
+
+    @babel.localeselector
+    def get_locale():
+        if request.args.get("language"):
+            session["language"] = request.args.get("language")
+        return session.get("language", "en")
 
     login_manager = LoginManager()
     login_manager.login_view = "login.login"
