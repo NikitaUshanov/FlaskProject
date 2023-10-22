@@ -1,10 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Авторизация</title>
-</head>
-<body>
-    Авторизация
-</body>
-</html>
+{% extends "base.html" %}
+
+{% block content %}
+<div class="column is-4 is-offset-4">
+    <div class="box">
+
+        <form method="POST" action="/login">
+            <div class="form-group">
+                <label for="exampleDropdownFormEmail2">Email address</label>
+                <input type="email" name="email" required="required" class="form-control" id="exampleDropdownFormEmail2" placeholder="email@example.com">
+            </div>
+            <div class="form-group">
+                <label for="exampleDropdownFormPassword2">Password</label>
+                <input type="password" name="password" required="required" class="form-control" id="exampleDropdownFormPassword2" placeholder="Password">
+            </div>
+            <div class="field">
+                <label class="checkbox">
+                    <input type="checkbox">
+                    Remember me
+                </label>
+            </div>
+              <button type="submit" class="btn btn-secondary btn-lg btn-block">Sign In</button>
+        </form>
+    </div>
+</div>
+{% endblock %}
