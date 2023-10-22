@@ -50,7 +50,7 @@ def create_app(config_class=Config):
     from app.machine import bp as machine_bp
     app.register_blueprint(machine_bp)
 
-    from app.article import bp as statya_bp
-    app.register_blueprint(statya_bp)
+    from app.article import bp as article_bp
+    app.register_blueprint(article_bp)
 
     return app
