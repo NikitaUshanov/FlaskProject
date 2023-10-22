@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block paginator %}
+<style>
+   .text_box {
+    margin-right: 50px;
+   }
+  </style>
+<nav aria-label="Page navigation example">
+  <ul class="pagination justify-content-center">
+    <li class="page-item"><a class="page-link" href="{{ url_for('article.article_n', article_id=1)}}">1</a></li>
+    <li class="page-item"><a class="page-link" href="{{ url_for('article.article_n', article_id=2)}}">2</a></li>
+    <li class="page-item"><a class="page-link" href="{{ url_for('article.article_n', article_id=3)}}">3</a></li>
+    <li class="page-item"><a class="page-link" href="{{ url_for('article.article_n', article_id=4)}}">4</a></li>
+  </ul>
+</nav>
+<ul class="justify-content-around">
+  <h3>{{ title }}</h3>
+</ul>
+<ul class="text_box">
+  <p align="justify">
+  {{ text }}
+  </p>
+</ul>
+{% endblock %}

@@ -2,7 +2,7 @@ from flask import Flask
 from flask_login import LoginManager
 
 from config import Config
-from app.extensions import db
+from app.extensions import db, babel
 from app.models.models import User
 
 
@@ -12,6 +12,7 @@ def create_app(config_class=Config):
     app.config.from_object(config_class)
 
     db.init_app(app)
+    babel.init_app(app)
 
     login_manager = LoginManager()
     login_manager.login_view = "login.login"
@@ -33,7 +34,7 @@ def create_app(config_class=Config):
     from app.machine import bp as machine_bp
     app.register_blueprint(machine_bp)
 
-    from app.statya import bp as statya_bp
+    from app.article import bp as statya_bp
     app.register_blueprint(statya_bp)
 
     return app
