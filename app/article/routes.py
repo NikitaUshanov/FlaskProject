@@ -1,4 +1,4 @@
-from flask import render_template
+from flask import render_template, session
 from flask_login import login_required
 from app.article import bp
 from app.extensions import db
@@ -10,11 +10,13 @@ from app.models.models import Article
 @login_required
 def article():
     article = db.session.query(Article).filter_by(id=1).first()
-    return render_template("article.html", title=article.title, text=article.text)
+    text = article.text_ru if session["language"] == "ru" else article.text_en
+    return render_template("article.html", title=article.title, text=text)
 
 
 @bp.route("/article/<article_id>")
 @login_required
 def article_n(article_id):
     article = db.session.query(Article).filter_by(id=article_id).first()
-    return render_template("article.html", title=article.title, text=article.text)
+    text = article.text_ru if session["language"] == "ru" else article.text_en
+    return render_template("article.html", title=article.title, text=text)

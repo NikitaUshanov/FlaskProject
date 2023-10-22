@@ -11,4 +11,5 @@ class User(UserMixin, db.Model):
 class Article(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(100))
-    text = db.Column(db.String(5000))
+    text_ru = db.Column(db.String(5000))
+    text_en = db.Column(db.String(5000))

@@ -1,4 +1,4 @@
-from flask import Flask, request, session
+from flask import Flask, request, session, redirect
 from flask_login import LoginManager
 
 from config import Config
@@ -20,6 +20,15 @@ def create_app(config_class=Config):
         if request.args.get("language"):
             session["language"] = request.args.get("language")
         return session.get("language", "en")
+
+    @app.before_request
+    def before_url():
+        session["before_url"] = request.referrer
+
+    @app.route("/language=<language>")
+    def set_language(language=None):
+        session["language"] = language
+        return redirect(session["before_url"])
 
     login_manager = LoginManager()
     login_manager.login_view = "login.login"

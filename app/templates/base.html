@@ -36,8 +36,8 @@
                   {{ _("Language") }}
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href="{{ url_for('main.set_language', language='ru') }}">{{ _("Russian") }}</a>
-                  <a class="dropdown-item" href="{{ url_for('main.set_language', language='en') }}">{{ _("English") }}</a>
+                  <a class="dropdown-item" href="{{ url_for('set_language', language='ru') }}">{{ _("Russian") }}</a>
+                  <a class="dropdown-item" href="{{ url_for('set_language', language='en') }}">{{ _("English") }}</a>
                 </div>
             </li>
         </ul>
