@@ -61,7 +61,7 @@ msgstr "Другое"
 
 #: templates/index.html:22
 msgid "Not available now, coming soon"
-msgstr "В данные момент недоступно, приходите позже"
+msgstr "В данный момент недоступно, приходите позже"
 
 #: templates/index.html:29
 msgid "To see more information, please authorize"

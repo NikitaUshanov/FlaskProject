@@ -17,6 +17,9 @@ def article():
 @bp.route("/article/<article_id>")
 @login_required
 def article_n(article_id):
+    image = False
+    if article_id == "5":
+        image = True
     article = db.session.query(Article).filter_by(id=article_id).first()
     text = article.text_ru if session["language"] == "ru" else article.text_en
-    return render_template("article.html", title=article.title, text=text)
+    return render_template("article.html", title=article.title, text=text, image=image)

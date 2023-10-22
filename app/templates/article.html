@@ -5,13 +5,20 @@
    .text_box {
     margin-right: 50px;
    }
-  </style>
+  .photo {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  }
+</style>
 <nav aria-label="Page navigation example">
   <ul class="pagination justify-content-center">
     <li class="page-item"><a class="page-link" href="{{ url_for('article.article_n', article_id=1)}}">1</a></li>
     <li class="page-item"><a class="page-link" href="{{ url_for('article.article_n', article_id=2)}}">2</a></li>
     <li class="page-item"><a class="page-link" href="{{ url_for('article.article_n', article_id=3)}}">3</a></li>
     <li class="page-item"><a class="page-link" href="{{ url_for('article.article_n', article_id=4)}}">4</a></li>
+    <li class="page-item"><a class="page-link" href="{{ url_for('article.article_n', article_id=5)}}">5</a></li>
   </ul>
 </nav>
 <ul class="justify-content-around">
@@ -22,4 +29,7 @@
   {{ text }}
   </p>
 </ul>
+{% if image %}
+<img src="../static/assets/nagets.jpg" class="photo">
+{% endif %}
 {% endblock %}
