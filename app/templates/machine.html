@@ -1,7 +1,29 @@
 {% extends "base.html" %}
 
-{% block content %}
-<div class="column is-4 is-offset-4">
-    Machine
-</div>
+{% block paginator %}
+<style>
+      .center {
+  display: block;
+  margin-top: 10%;
+  margin-left: auto;
+  margin-right: auto;
+  width: 30%;
+  }
+</style>
+<form>
+    <div class="center">
+        <h3 class="text-center">{{ _("Phone price prediction") }}</h3>
+        <input class="form-control" type="text" name="memory" placeholder='{{ _("Built-in memory capacity, GB") }}'>
+        <p></p>
+        <input class="form-control" type="text" placeholder='{{ _("Weight of the cell phone, gramme") }}'>
+        <p></p>
+        <input class="form-control" type="text" placeholder='{{ _("Battery power, mAh") }}'>
+        <p></p>
+    </div>
+    <div class="text-center">
+        <button type="button" class="btn btn-success">{{ _("Send") }}</button>
+        <button type="button" class="btn btn-warning">{{ _("Results") }}</button>
+        <button type="button" class="btn btn-danger">{{ _("Retrain") }}</button>
+    </div>
+</form>
 {% endblock %}

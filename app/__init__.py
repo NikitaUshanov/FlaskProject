@@ -2,7 +2,7 @@ from flask import Flask, request, session, redirect
 from flask_login import LoginManager
 
 from config import Config
-from app.extensions import db, babel
+from app.extensions import db, babel, migrate, dumps
 from app.models.models import User
 
 
@@ -12,6 +12,10 @@ def create_app(config_class=Config):
     app.config.from_object(config_class)
 
     db.init_app(app)
+
+    migrate.init_app(app, db)
+
+    dumps.init_app(app, db)
 
     babel.init_app(app)
 
@@ -24,6 +28,10 @@ def create_app(config_class=Config):
     @app.before_request
     def before_url():
         session["before_url"] = request.referrer
+        try:
+            session["language"]
+        except KeyError:
+            session["language"] = "en"
 
     @app.route("/language=<language>")
     def set_language(language=None):
