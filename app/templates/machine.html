@@ -2,16 +2,6 @@
 
 {% block content %}
 
-<style>
-    .center {
-        display: block;
-        margin-top: 10%;
-        margin-left: auto;
-        margin-right: auto;
-        width: 30%;
-  }
-</style>
-
 <script>
     function sendData() {
         var battery = document.getElementById("battery").value;
@@ -28,7 +18,7 @@
         .then(response => response.json())
         .then(result => {
             document.getElementById("result-div").style.display = "block";
-            document.getElementById("result").innerText = "Price: " + result.cat + ", State: " + result.body;
+            document.getElementById("result").innerText = "{{ _("Price") }}: " + result.cat + ", {{ _("State") }}: " + result.body;
         });
     }
 
@@ -50,7 +40,7 @@
 </script>
 
 <form>
-    <div class="center">
+    <div class="text-center">
         <h3 class="text-center">{{ _("Phone price prediction") }}</h3>
         <input class="form-control" type="text" id="battery" placeholder='{{ _("Battery power, mAh") }}'>
         <p></p>
@@ -64,6 +54,12 @@
         <button type="button" class="btn btn-warning" onclick="showResults()">{{ _("Results") }}</button>
         <button type="button" class="btn btn-danger" onclick="retrainModel()">{{ _("Retrain") }}</button>
     </div>
+    {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {{ messages }}
+            {% endif %}
+        <p></p>
+    {% endwith %}
     <div class="text-center" id="result-div" style="display:block;">
         <p></p>
         <h4>{{ _("Result") }}</h4>
