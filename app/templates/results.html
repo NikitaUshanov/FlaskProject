@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h3 class="text-center">{{ _("Sent Data and Results") }}</h3>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Battery (mAh)</th>
+      <th scope="col">Memory (GB)</th>
+      <th scope="col">Weight (grams)</th>
+      <th scope="col">Category</th>
+      <th scope="col">Body</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for idx, entry in data %}
+    <tr>
+      <th scope="row">{{ idx+1 }}</th>
+      <td>{{ entry['battery'] }}</td>
+      <td>{{ entry['memory'] }}</td>
+      <td>{{ entry['weight'] }}</td>
+      <td>{{ entry['result']['cat'] }}</td>
+      <td>{{ entry['result']['body'] }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% endblock %}
