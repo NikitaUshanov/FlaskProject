@@ -1,6 +1,7 @@
 from flask import render_template, request, flash, redirect, url_for, session
 from flask_login import login_required
 from flask_babel import _
+from config import Config
 from app.machine import bp
 import pandas as pd
 from joblib import dump, load
@@ -57,7 +58,7 @@ def show_results():
 @bp.route("/retrain_model")
 @login_required
 def retrain_model():
-    engine = create_engine("mysql+pymysql://root:test@localhost/db_1")
+    engine = create_engine(Config.SQLALCHEMY_DATABASE_URI)
     df = pd.read_sql_query("select * from fin", con=engine)
     df = df.drop(["index", "blue", "clock_speed", "dual_sim", "fc", "four_g", "m_dep", "n_cores", "pc", "px_height", "px_width", "ram", "sc_h", "sc_w", "talk_time", "three_g", "touch_screen", "wifi"], axis=1)
 

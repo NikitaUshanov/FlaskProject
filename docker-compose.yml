@@ -1,0 +1,27 @@
+services:
+
+  db:
+    image: "mysql:8"
+    container_name: flask_db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: 123
+      MYSQL_DATABASE: db_1
+    ports:
+        - "1235:3306"
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8070:8080
+    tty: true
+
+  flask:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+     - "8002:8000"
+    depends_on:
+      - db

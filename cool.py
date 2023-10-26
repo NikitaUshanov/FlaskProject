@@ -1,8 +1,9 @@
 from sqlalchemy import create_engine
 import pandas as pd
+from config import Config
 import time
 
-engine = create_engine('mysql+pymysql://root:test@localhost/db_1')
+engine = create_engine(Config.SQLALCHEMY_DATABASE_URI)
 
 
 def to_sql():

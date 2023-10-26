@@ -1,6 +1,8 @@
 #!/bin/bash
-app="docker.test"
-docker build -t ${app} .
-docker run -d -p 5000:80 \
-  --name=${app} \
-  -v $PWD:/app ${app}
+
+echo "Ожидание инициализации базы данных"
+sleep 10
+echo "Готово"
+
+python cool.py
+flask run -h 0.0.0.0 -p 8000
