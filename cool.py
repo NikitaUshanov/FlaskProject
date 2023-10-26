@@ -10,6 +10,10 @@ def to_sql():
     df.columns = [c.lower() for c in df.columns]
     df.to_sql("fin", engine)
 
+def article_to_sql():
+    df = pd.read_json("article.json")
+    df.to_sql("article", engine)
+
 
 def from_sql():
     df = pd.read_sql_query('select * from "fin"', con=engine)
@@ -18,6 +22,5 @@ def from_sql():
 
 if __name__ == "__main__":
     to_sql()
-    #from_sql()
-    print("Датасет загружен в базу данных!")
-
+    article_to_sql()
+    print("Датасеты загружен в базу данных!")
