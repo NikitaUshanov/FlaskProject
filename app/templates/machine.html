@@ -28,7 +28,7 @@
         .then(response => response.json())
         .then(result => {
             document.getElementById("result-div").style.display = "block";
-            document.getElementById("result").innerText = "Category: " + result.cat + ", Body: " + result.body;
+            document.getElementById("result").innerText = "Price: " + result.cat + ", State: " + result.body;
         });
     }
 
