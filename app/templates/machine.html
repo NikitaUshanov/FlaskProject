@@ -1,29 +1,75 @@
 {% extends "base.html" %}
 
-{% block paginator %}
+{% block content %}
+
 <style>
-      .center {
-  display: block;
-  margin-top: 10%;
-  margin-left: auto;
-  margin-right: auto;
-  width: 30%;
+    .center {
+        display: block;
+        margin-top: 10%;
+        margin-left: auto;
+        margin-right: auto;
+        width: 30%;
   }
 </style>
+
+<script>
+    function sendData() {
+        var battery = document.getElementById("battery").value;
+        var memory = document.getElementById("memory").value;
+        var weight = document.getElementById("weight").value;
+
+        fetch('/send_data', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: 'battery=' + battery + '&memory=' + memory + '&weight=' + weight
+        })
+        .then(response => response.json())
+        .then(result => {
+            document.getElementById("result-div").style.display = "block";
+            document.getElementById("result").innerText = "Price: " + result.cat + ", State: " + result.body;
+        });
+    }
+
+    function retrainModel() {
+        fetch('/retrain_model')
+            .then(response => response.text())
+            .then(result => {
+                alert(result);
+            });
+    }
+
+    function showResults() {
+        fetch('/results')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById("results-container").innerHTML = data;
+            });
+    }
+</script>
+
 <form>
     <div class="center">
         <h3 class="text-center">{{ _("Phone price prediction") }}</h3>
-        <input class="form-control" type="text" name="memory" placeholder='{{ _("Built-in memory capacity, GB") }}'>
+        <input class="form-control" type="text" id="battery" placeholder='{{ _("Battery power, mAh") }}'>
         <p></p>
-        <input class="form-control" type="text" placeholder='{{ _("Weight of the cell phone, gramme") }}'>
+        <input class="form-control" type="text" id="memory" placeholder='{{ _("Built-in memory capacity, GB") }}'>
         <p></p>
-        <input class="form-control" type="text" placeholder='{{ _("Battery power, mAh") }}'>
+        <input class="form-control" type="text" id="weight" placeholder='{{ _("Weight of the cell phone, gramme") }}'>
         <p></p>
     </div>
     <div class="text-center">
-        <button type="button" class="btn btn-success">{{ _("Send") }}</button>
-        <button type="button" class="btn btn-warning">{{ _("Results") }}</button>
-        <button type="button" class="btn btn-danger">{{ _("Retrain") }}</button>
+        <button type="button" class="btn btn-success" onclick="sendData()">{{ _("Send") }}</button>
+        <button type="button" class="btn btn-warning" onclick="showResults()">{{ _("Results") }}</button>
+        <button type="button" class="btn btn-danger" onclick="retrainModel()">{{ _("Retrain") }}</button>
     </div>
+    <div class="text-center" id="result-div" style="display:block;">
+        <p></p>
+        <h4>{{ _("Result") }}</h4>
+        <p id="result"></p>
+    </div>
+    <div id="results-container"></div>
 </form>
+
 {% endblock %}
