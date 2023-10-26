@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2023-10-22 19:58+0300\n"
-"PO-Revision-Date: 2023-10-22 19:58+0300\n"
+"POT-Creation-Date: 2023-10-26 17:19+0300\n"
+"PO-Revision-Date: 2023-10-26 17:20+0300\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: ru\n"
 "Language-Team: ru <LL@li.org>\n"
@@ -19,21 +19,41 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.9.1\n"
 
+#: login/routes.py:24
+msgid "Please check your login credentials and try again."
+msgstr "Пожалуйста, проверьте ваш логин и пароль"
+
+#: register/routes.py:23
+msgid "Email address already exists"
+msgstr "Почтовый адрес уже зарегестрирован"
+
 #: templates/base.html:17
 msgid "Home"
 msgstr "Главная"
 
-#: templates/base.html:21
+#: templates/base.html:21 templates/login.html:22
 msgid "Login"
 msgstr "Вход"
 
-#: templates/base.html:26 templates/register.html:16
+#: templates/base.html:26 templates/register.html:24
 msgid "Sign Up"
 msgstr "Регистрация"
 
 #: templates/base.html:31
 msgid "Logout"
 msgstr "Выход"
+
+#: templates/base.html:36
+msgid "Language"
+msgstr "Язык"
+
+#: templates/base.html:39
+msgid "Russian"
+msgstr "Русский"
+
+#: templates/base.html:40
+msgid "English"
+msgstr "Английский"
 
 #: templates/index.html:6
 msgid "Machine Learning"
@@ -61,7 +81,7 @@ msgstr "Другое"
 
 #: templates/index.html:22
 msgid "Not available now, coming soon"
-msgstr "В данный момент недоступно, приходите позже"
+msgstr "В данный момент недоступно"
 
 #: templates/index.html:29
 msgid "To see more information, please authorize"
@@ -79,15 +99,47 @@ msgstr "Пароль"
 msgid "Remember me"
 msgstr "Запомнить меня"
 
-#: templates/base.html:36
-msgid "Language"
-msgstr "Язык"
+#: templates/machine.html:21
+msgid "Price"
+msgstr "Цена"
 
-#: templates/base.html:39
-msgid "Russian"
-msgstr "Русский"
+#: templates/machine.html:21
+msgid "State"
+msgstr "Состояние"
 
-#: templates/base.html:40
-msgid "English"
-msgstr "Английский"
+#: templates/machine.html:44
+msgid "Phone price prediction"
+msgstr "Предсказание цены телефона"
+
+#: templates/machine.html:45
+msgid "Battery power, mAh"
+msgstr "Мощность батареи, мАч"
+
+#: templates/machine.html:47
+msgid "Built-in memory capacity, GB"
+msgstr "Внутренняя память, ГБ"
+
+#: templates/machine.html:49
+msgid "Weight of the cell phone, gramme"
+msgstr "Вес телефона, граммы"
+
+#: templates/machine.html:53
+msgid "Send"
+msgstr "Отправить"
+
+#: templates/machine.html:54
+msgid "Results"
+msgstr "Результаты"
+
+#: templates/machine.html:55
+msgid "Retrain"
+msgstr "Переобучить"
+
+#: templates/machine.html:65
+msgid "Result"
+msgstr "Результат"
+
+#: templates/results.html:3
+msgid "Sent Data and Results"
+msgstr "История результатов"
 

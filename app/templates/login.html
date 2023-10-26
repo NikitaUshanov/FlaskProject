@@ -19,6 +19,14 @@
                     {{ _("Remember me") }}
                 </label>
             </div>
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    <div class="text-danger">
+                        {{ messages[0] }}
+                    </div>
+                    <p></p>
+                {% endif %}
+            {% endwith %}
               <button type="submit" class="btn btn-secondary btn-lg btn-block">{{ _("Login") }}</button>
         </form>
     </div>

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2023-10-22 20:34+0300\n"
+"POT-Creation-Date: 2023-10-26 17:19+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,6 +16,14 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.9.1\n"
+
+#: login/routes.py:24
+msgid "Please check your login credentials and try again."
+msgstr ""
+
+#: register/routes.py:23
+msgid "Email address already exists"
+msgstr ""
 
 #: templates/base.html:17
 msgid "Home"
@@ -25,7 +33,7 @@ msgstr ""
 msgid "Login"
 msgstr ""
 
-#: templates/base.html:26 templates/register.html:16
+#: templates/base.html:26 templates/register.html:24
 msgid "Sign Up"
 msgstr ""
 
@@ -87,5 +95,49 @@ msgstr ""
 
 #: templates/login.html:19
 msgid "Remember me"
+msgstr ""
+
+#: templates/machine.html:21
+msgid "Price"
+msgstr ""
+
+#: templates/machine.html:21
+msgid "State"
+msgstr ""
+
+#: templates/machine.html:44
+msgid "Phone price prediction"
+msgstr ""
+
+#: templates/machine.html:45
+msgid "Battery power, mAh"
+msgstr ""
+
+#: templates/machine.html:47
+msgid "Built-in memory capacity, GB"
+msgstr ""
+
+#: templates/machine.html:49
+msgid "Weight of the cell phone, gramme"
+msgstr ""
+
+#: templates/machine.html:53
+msgid "Send"
+msgstr ""
+
+#: templates/machine.html:54
+msgid "Results"
+msgstr ""
+
+#: templates/machine.html:55
+msgid "Retrain"
+msgstr ""
+
+#: templates/machine.html:65
+msgid "Result"
+msgstr ""
+
+#: templates/results.html:3
+msgid "Sent Data and Results"
 msgstr ""
 
